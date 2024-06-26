@@ -1,4 +1,5 @@
 # send_json
+define.js copyをもとにdefine.jsを作成し設定を書く
 
 ## Project setup
 ```
@@ -14,7 +15,9 @@ npm run serve
 ```
 npm run build
 ```
-virtual hostのdocument root , root directoryはdistにする
+npm run serveを使わない場合、
+virtual hostのdocument root , root directoryは/distにする
+
 ### Lints and fixes files
 ```
 npm run lint
