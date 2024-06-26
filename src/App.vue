@@ -1,15 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+
+  
   <RouteList  @update:selectedOption1="handleOption1Change" @update:selectedOption2="handleOption2Change" />
-  <p>Selected Option 1: {{ selectedOption1 }}</p>
-  <p>Selected Option 2: {{ selectedOption2 }}</p>
+  <!-- <p>Selected Option 1: {{ selectedOption1 }}</p> -->
+  <!-- <p>Selected Option 2: {{ selectedOption2 }}</p> -->
+  
   <!-- 親から子にデータが渡される。最初はreturnで設定したもの -->
   <JsonTest 
   msg="Welcome to JsonTest Vue.js App"
   :selectedOption1="selectedOption1"
   :selectedOption2="selectedOption2"
   />
-
   <div>
     <!-- ルートコンポーネントの内部で動的にコンポーネントを切り替える -->
     <nav>
