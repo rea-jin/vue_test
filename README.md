@@ -14,7 +14,7 @@ npm run serve
 ```
 npm run build
 ```
-
+virtual hostのdocument root , root directoryはdistにする
 ### Lints and fixes files
 ```
 npm run lint
