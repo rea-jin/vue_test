@@ -21,6 +21,8 @@
   </template>
   
   <script>
+  import { API_URL1, API_RUL2 } from '../../define.js';
+
   export default {
     name: "JsonSubmitter",
     data() {
@@ -49,9 +51,9 @@
           console.log(this.selectedOption1);
           console.log(this.selectedOption2);
           if(this.selectedId === "1") {
-            apiUrl = "http://localhost:3000/api/v1/" + this.selectedOption1
+            apiUrl = API_URL1 + this.selectedOption1
           } else if(this.selectedId === "2") {
-            apiUrl = "http://develop.example.com/api/v1/" + this.selectedOption2
+            apiUrl = API_RUL2 + this.selectedOption2
           }
           console.log(apiUrl);
           return;
