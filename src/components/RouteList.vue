@@ -1,4 +1,18 @@
 <template>
+    <div class="">
+    <label>Method:</label>
+    <select v-model="localSelectMethod">
+      <option value="GET">GET</option>
+      <option value="POST">POST</option>
+      <option value="PUT">PUT</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+
+    <label>Path Parameter</label>
+    <input type="text" v-model="localPathParameter" placeholder="u12345">
+    <input type="text" v-model="localReplaceParam" placeholder="{user_id}">
+  </div>
+
     <div>
       <label>Route 1:</label>
       <select v-model="selectedOption1">
@@ -21,12 +35,18 @@ watchオプションを使用して、selectedOption1とselectedOption2の変更
   <script>
   import { OPT_ARR1, OPT_ARR2 } from '../../define.js';
   export default {
+    props: {
+      // propsを直接v-modelで使用することはできない
+      selectMethod: String,
+      pathParameter: String,
+      replaceParam: String
+    },
     data() {
       return {
         selectedOption1: '',
         selectedOption2: '',
         option1: [],
-        option2: []
+        option2: [],
       };
     },
     watch: {
@@ -35,7 +55,34 @@ watchオプションを使用して、selectedOption1とselectedOption2の変更
       },
       selectedOption2(newValue) {
         this.$emit('update:selectedOption2', newValue);
+      },
+    },
+    emits: ['update:selectMethod', 'update:pathParameter', 'update:replaceParam'],
+    computed: {
+      localSelectMethod: {
+      get() {
+        return this.selectMethod;
+      },
+      set(value) {
+        this.$emit('update:selectMethod', value);
       }
+    },
+    localPathParameter: {
+      get() {
+        return this.pathParameter;
+      },
+      set(value) {
+        this.$emit('update:pathParameter', value);
+      }
+    },
+    localReplaceParam: {
+      get() {
+        return this.replaceParam;
+      },
+      set(value) {
+        this.$emit('update:replaceParam', value);
+      }
+    }
     },
     methods: {
       // オプションの配列を返す----2
@@ -60,4 +107,4 @@ watchオプションを使用して、selectedOption1とselectedOption2の変更
 
   };
   </script>
-  
+  import { computed } from 'vue';
