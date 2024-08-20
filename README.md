@@ -10,6 +10,13 @@ npm install
 ```
 npm run serve
 ```
+
+apiフォルダを外に出して、サーバーとして、そこからLaravel側に飛ばすようにすれば、以下はいらない。
+
+
+
+
+
 開発サーバーは8080ポートなので、送信先も同じポートじゃないとCORS（Cross-Origin Resource Sharing）ポリシーによるエラーが
 発生する。
 php fileに
