@@ -85,7 +85,7 @@
           const jsonData = {};
           let requestObj = {};
           // ここでjsonInputを解析してjsonDataに保存
-          if (typeof jsonString === 'string') {
+          if (typeof jsonInput === 'string') {
             try {
               requestObj = JSON.parse(this.jsonInput);
               console.log(this.jsonInput); // JSON文字列をパースしてオブジェクトに変換した結果を出力
@@ -122,7 +122,7 @@
 
           // return;
           const response = await fetch(sendUrl, {
-            method: "POST",
+            method: selectMethod,
             headers: {
               "Content-Type": "application/json",
             },
